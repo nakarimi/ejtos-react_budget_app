@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 
 const AllocationForm = () => {
-  const { expenses, dispatch, currency } = useContext(AppContext);
+  const { expenses, dispatch, currency, remaining } = useContext(AppContext);
   const [name, setName] = useState('');
   const [allocation, setAllocation] = useState('');
   const [cost, setCost] = useState('');
@@ -16,10 +16,14 @@ const AllocationForm = () => {
     };
 
     if (allocation === 'add') {
-      dispatch({
-        type: "ADD_EXPENSE",
-        payload: expense
-      });
+      if(remaining < expense.cost){
+        alert(`The value should not exceed the remaining funds ${currency}${remaining}`)
+      }else{
+        dispatch({
+          type: "ADD_EXPENSE",
+          payload: expense
+        });
+      }
 
     } else {
       dispatch({

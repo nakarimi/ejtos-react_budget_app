@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.expense-add svg{
+  fill: white;
+  background: green;
+  border-radius: 20px;
+  padding: 2px;
+  height: 20px;
+  width: 20px;
+}
+
+.expense-reduce svg{
+  fill: white;
+  background: red;
+  border-radius: 20px;
+  padding: 2px;
+  height: 20px;
+  width: 20px;
+}

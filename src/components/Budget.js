@@ -4,8 +4,8 @@ import { AppContext } from '../context/AppContext';
 const Budget = () => {
   const { budget, currency, dispatch, remaining } = useContext(AppContext);
   const handleSetBudget = (e) => {
-    if(remaining > e.target.value){
-      alert("The value should not exceed the remaining budget.")
+    if(e.target.value < budget - remaining){
+      alert("You can not reduce the budget value lower than the spending")
     }else{
       dispatch({
         type: 'SET_BUDGET',
